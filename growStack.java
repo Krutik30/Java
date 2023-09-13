@@ -20,14 +20,15 @@ public class growStack{
                 arr = temp;
             }
             arr[c] = scan.nextInt();
-            c++;
             if(arr[c] == -1)
                 break;
+            c++;
 
         }
 
+        System.out.println("Your Array : ");
         for(int i=0;i<c;i++){
-            System.out.println(arr[i] + " ");
+            System.out.print(arr[i] + " ");
         }
     }
 }

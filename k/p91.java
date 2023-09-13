@@ -1,42 +1,80 @@
-import java.util.*;
-import javafx.appliacation.Application;
+package classfiles.javafx;
 
-public class p91 extends Application {
-    @Override
-    public void start(Stage primaryStage) {
-        Pane pane = new Pane();
-        pane.setPadding(new Insets(30, 30, 30, 30));
-        Circle circle = new Circle(30, 30, 30);
-        pane.getChildren().add(circle);
-        pane.setOnKeyPressed(e -> {
-            switch (e.getCode()) {
-                case UP:
-                    circle.setCenterY(
-                            circle.getCenterY() > circle.getRadius() ? circle.getCenterY() - 15 : circle.getCenterY());
-                    break;
-                case DOWN:
-                    circle.setCenterY(
-                            circle.getCenterY() < pane.getHeight() - circle.getRadius() ? circle.getCenterY() + 15
-                                    : circle.getCenterY());
-                    break;
-                case LEFT:
-                    circle.setCenterX(
-                            circle.getCenterX() > circle.getRadius() ? circle.getCenterX() - 15 : circle.getCenterX());
-                    break;
-                case RIGHT:
-                    circle.setCenterX(
-                            circle.getCenterX() < pane.getWidth() - circle.getRadius() ? circle.getCenterX() + 15
-                                    : circle.getCenterX());
-            }
-        });
-        Scene scene = new Scene(pane, 200, 200);
-        primaryStage.setTitle("OOP_18");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        pane.requestFocus();
-    }
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 
-    public static void main(String ap[]) {
-        launch(ap);
+public class nine1 extends Application{
+
+public static void main(String[]args){
+        launch(args);
+        }
+    Circle cir = new Circle(500, 350, 200);
+    Label label = new Label("CENTER");
+@Override
+public void start(Stage primaryStage){
+
+    cir.setFill(Color.MAGENTA);
+    cir.setStroke(Color.BLACK);
+
+    label.setLayoutX(400);
+    label.setLayoutY(325);
+    label.setFont(Font.font("Times New Roman", FontWeight.EXTRA_BOLD, FontPosture.REGULAR, 50));
+    label.setTextFill(Color.BLUE);
+    label.setBorder(Border.stroke(Color.BLACK));
+    label.setTextAlignment(TextAlignment.CENTER);
+    label.setAlignment(Pos.CENTER);
+    label.setMaxSize(250, 75);
+
+    Pane pane = new Pane(cir, label);
+    pane.setOnKeyPressed(e-> {
+        switch (e.getCode()) {
+
+            case UP:
+                cir.setFill(Color.MAGENTA);
+                cir.setCenterY(cir.getCenterY() - 100);
+                label.setLayoutY(label.getLayoutY() - 100);
+                label.setText("FRONT");
+                break;
+
+            case DOWN:
+                cir.setFill(Color.YELLOW);
+                cir.setCenterY(cir.getCenterY() + 100);
+                label.setLayoutY(label.getLayoutY() + 100);
+                label.setText("BACK");
+                break;
+
+            case LEFT:
+                cir.setFill(Color.LIME);
+                cir.setCenterX(cir.getCenterX() - 100);
+                label.setLayoutX(label.getLayoutX() - 100);
+                label.setText("LEFT");
+                break;
+
+            case RIGHT:
+                cir.setFill(Color.RED);
+                cir.setCenterX(cir.getCenterX() + 100);
+                label.setLayoutX(label.getLayoutX() + 100);
+                label.setText("RIGHT");
+                break;
+        }
+    });
+
+    Scene scene = new Scene(pane, 1000, 700);
+    scene.setFill(Color.HOTPINK);
+    primaryStage.setScene(scene);
+    primaryStage.setTitle("Move_Circle_With_ArrowKeys");
+    primaryStage.show();
+    pane.requestFocus();
     }
 }

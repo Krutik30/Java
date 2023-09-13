@@ -1,32 +1,33 @@
 import java.util.*;
 
-class sort{
-    public static void main(String args[]){
-        Scanner scan = new Scanner(System.in);
-        int a , b, c;
-        a = scan.nextInt();
-        b = scan.nextInt();
-        c = scan.nextInt();
+public class growStack{
 
-        if(a < b && b < c){
-            System.out.println(a+" ");
-            if(b < c)
-                System.out.println(b + " " + c);
-            else
-                System.out.println(c+" "+b);
-        }else if(b < c && b < a){
-            System.out.println(b+" ");
-            if(a < c)
-                System.out.println(a + " " + c);
-            else
-                System.out.println(c+" "+a);
+
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        int[] arr = new int[1];
+        System.out.println("If you want to exit the loop press -1");
+        System.out.println("Enter Your array values  : ");
+        int c = 0;
+        while(true){
+            System.out.println("Value at Index " + c + " :");
+            if(c == arr.length - 1){
+                int[] temp = new int[2*arr.length];
+                for(int i=0;i<arr.length;i++){
+                    temp[i] = arr[i];
+                }
+                arr = temp;
+            }
+            arr[c] = scan.nextInt();
+            c++;
+            if(arr[c] == -1)
+                break;
+
         }
-        else{
-            System.out.println(c+" ");
-            if(a < b)
-                System.out.println(a + " " + b);
-            else
-                System.out.println(a+" "+a);
+
+        for(int i=0;i<c;i++){
+            System.out.println(arr[i] + " ");
         }
     }
 }

@@ -25,7 +25,7 @@ class sortInt {
             if (a < b)
                 System.out.println(a + " " + b);
             else
-                System.out.println(a + " " + a);
+                System.out.println(b + " " + a);
         }
     }
 }

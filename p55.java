@@ -35,7 +35,7 @@ class Student {
     }
 }
 
-public class five5 {
+public class p55 {
     public static void ThrowRollNoException(long rollNo) throws RollNoException {
         System.out.println();
         System.out.println("Called for check and throw exception");

@@ -44,6 +44,7 @@ public class exp {
                 continue;
             else{
                 ans = isOp(args[i] , arr);
+                break;
             }
         }
         System.out.println(ans);
